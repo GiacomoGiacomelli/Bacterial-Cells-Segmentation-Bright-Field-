@@ -1,0 +1,24 @@
+name = getTitle(); 
+dir=getDirectory("image");
+run("Smooth");
+run("Enhance Contrast...", "saturated=0.3");
+run("Subtract Background...", "rolling=15 light");
+run("Scale...", "x=10 y=10 width=12800 height=12800 interpolation=Bicubic average create title=Results");
+setAutoThreshold("Default");
+run("Convert to Mask");
+run("Convert to Mask");
+run("Fill Holes");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+run("Dilate");
+
+saveAs("Text Image", dir + substring(name,0,4) + "polyMask" + ".txt");
+saveAs("Tiff", dir + substring(name,0,4) + "polyMask" + ".tif");
